@@ -1,0 +1,31 @@
+model: aon_gnn
+network: Berlin-Friedrichshain
+dataset: main
+seed: 44
+device: cpu
+threads: 12
+lr: 0.0003
+weight_decay: 0.0001
+grad_clip: 1.0
+model_args:
+  hidden: 128
+  layers: 8
+  dropout: 0.0
+meta_steps: 2000
+val_points: 40
+eval_k:
+- 0
+- 1
+- 2
+- 4
+train_closure_sets: 50
+init: runs/aon_gnn/20261013_194028_lc050_s44
+maml:
+  k: 4
+  m: 6
+  tasks_per_step: 8
+  inner_steps: 5
+  inner_lr: 0.1
+  scope: all
+  first_order: false
+name: maml_lc050_s44

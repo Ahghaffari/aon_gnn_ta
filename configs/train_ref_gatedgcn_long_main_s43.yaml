@@ -1,0 +1,17 @@
+model: ref_gatedgcn
+network: Berlin-Friedrichshain
+dataset: main
+seed: 43
+device: cpu
+threads: 12
+epochs: 250
+batch_size: 128
+lr: 5.0e-4
+weight_decay: 1.0e-4
+grad_clip: 5.0
+model_args:
+  hidden: 320
+  layers: 6
+  dropout: 0.05
+  aux_zero_weight: 0.05
+name: hetgated_long_main_s43

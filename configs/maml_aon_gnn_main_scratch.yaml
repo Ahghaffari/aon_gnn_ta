@@ -1,0 +1,28 @@
+# inner_lr 0.03 (not 0.1): the first run of this config (lr 0.1, before the non-finite-step guard) diverged between outer
+# steps 700 and 800 (run 20261013_174530_maml_main_scratch, best checkpoint at step 400 kept). See PLAN.md Stage M1.
+model: aon_gnn
+network: Berlin-Friedrichshain
+dataset: main
+seed: 42
+device: cpu
+threads: 12
+lr: 1.0e-3
+weight_decay: 1.0e-4
+grad_clip: 1.0
+model_args:
+  hidden: 128
+  layers: 8
+  dropout: 0.0
+init: null
+meta_steps: 4000
+val_points: 40
+eval_k: [0, 1, 2, 4]
+maml:
+  k: 4
+  m: 6
+  tasks_per_step: 8
+  inner_steps: 5
+  inner_lr: 0.03
+  scope: all
+  first_order: false
+name: maml_main_scratch_lr003

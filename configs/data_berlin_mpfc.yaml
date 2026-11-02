@@ -1,0 +1,26 @@
+network: Berlin-Mitte-Prenzlauerberg-Friedrichshain-Center
+seed: 42
+
+solver:
+  rgap_target: 1.0e-5
+  max_iter: 2000
+
+demand:
+  scale_min: 0.6
+  scale_max: 1.4
+  zone_sigma: 0.3
+  cell_sigma: 0.2
+
+sets:
+  main:
+    closure_sets: 100
+    first_closure_set: 0
+    variants: 15
+    closure_mode: street
+    closure_unit: links
+    closure_min: 0
+    closure_max: 120
+
+pilot:
+  closure_sets: 4
+  variants: 3

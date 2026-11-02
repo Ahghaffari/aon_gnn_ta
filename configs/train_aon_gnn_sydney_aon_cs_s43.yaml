@@ -1,0 +1,20 @@
+# Exp 3 (Stage S): AON-GNN on Sydney (data_sydney.yaml, 300 closure sets x 15 variants, closures up to 13.9 % of street links).
+# One scenario takes 5.7 GB of GPU memory in a training step (probe S0), so batches of 8; 30 epochs ~ 7,700 steps.
+# AON input computed once per closure set (with its closures, base demand) and reused for every demand variant.
+model: aon_gnn
+network: Sydney
+dataset: main
+seed: 43
+device: cpu
+threads: 16
+epochs: 30
+batch_size: 8
+lr: 0.001
+weight_decay: 0.0001
+grad_clip: 1.0
+model_args:
+  hidden: 128
+  layers: 8
+  dropout: 0.0
+  aon_input: closure_set
+name: sydney_aon_cs_s43

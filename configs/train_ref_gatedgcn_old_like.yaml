@@ -1,0 +1,17 @@
+model: ref_gatedgcn
+network: Berlin-Friedrichshain
+dataset: old_like
+seed: 42
+device: cpu
+threads: 12
+epochs: 40
+batch_size: 128
+lr: 0.0005
+weight_decay: 0.0001
+grad_clip: 5.0
+model_args:
+  hidden: 320
+  layers: 6
+  dropout: 0.05
+  aux_zero_weight: 0.05
+name: old_like

@@ -1,0 +1,47 @@
+model: aon_gnn
+task: network
+train_networks:
+- Berlin-Friedrichshain
+- Berlin-Tiergarten
+- Berlin-Mitte-Center
+- Berlin-Friedrichshain@v0:50
+- Berlin-Tiergarten@v0:50
+- Berlin-Mitte-Center@v0:50
+val_networks:
+- Berlin-Friedrichshain@v50:60
+- Berlin-Tiergarten@v50:60
+- Berlin-Mitte-Center@v50:60
+eval_networks:
+- Berlin-Prenzlauerberg-Center
+- Berlin-Prenzlauerberg-Center@v0:20
+- Berlin-Mitte-Prenzlauerberg-Friedrichshain-Center
+dataset: main
+seed: 43
+device: cpu
+threads: 12
+lr: 0.0003
+weight_decay: 0.0001
+grad_clip: 1.0
+model_args:
+  hidden: 128
+  layers: 8
+  dropout: 0.0
+  scale: graph
+init: runs/aon_gnn/20261013_195448_m23_erm_prenzlauerberg_s43
+meta_steps: 1500
+val_points: 30
+eval_k:
+- 0
+- 1
+- 2
+- 5
+- 10
+maml:
+  k: 5
+  m: 10
+  tasks_per_step: 8
+  inner_steps: 5
+  inner_lr: 0.1
+  scope: all
+  first_order: true
+name: m23_maml_prenzlauerberg_fo_s43

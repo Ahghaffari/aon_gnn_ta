@@ -1,0 +1,18 @@
+# AON input computed once per closure set (with its closures, base demand) and reused for every demand variant.
+model: aon_gnn
+network: Berlin-Friedrichshain
+dataset: main
+seed: 42
+device: cpu
+threads: 12
+epochs: 60
+batch_size: 32
+lr: 0.001
+weight_decay: 0.0001
+grad_clip: 1.0
+model_args:
+  hidden: 128
+  layers: 8
+  dropout: 0.0
+  aon_input: closure_set
+name: main_aon_cs
